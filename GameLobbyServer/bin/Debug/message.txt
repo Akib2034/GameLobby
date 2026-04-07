@@ -1,0 +1,218 @@
+package edu.curtin.saed.assignment1.servicers;
+
+import edu.curtin.saed.assignment1.App;
+import edu.curtin.saed.assignment1.classes.Airport;
+import edu.curtin.saed.assignment1.classes.Plane;
+import edu.curtin.saed.assignment1.classes.SystemMap;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+//Handles flight request processes
+public class FlightRequestHandler 
+{
+    //Blocking queue to store flight requests 
+    private static final BlockingQueue<FlightRequest> FLIGHT_REQUESTS = new LinkedBlockingQueue<>();    
+    //Atomic boolean to signal shutdown of processes 
+    private static final AtomicBoolean SHUTDOWN_REQUESTED = new AtomicBoolean(false);
+    //Thread pool for processing flight requests 
+    private static final ExecutorService FLIGHT_REQUEST_THREAD_POOL = Executors.newFixedThreadPool(10);
+
+    //Logger for error reporting and logging 
+    private static final Logger LOGGER = Logger.getLogger(FlightRequestHandler.class.getName());
+
+
+     /**
+     * Starts the flight request process for a given airport
+     * @param nAirports Total number of airports, equal to 10 based on system map
+     * @param originAirport ID of the origin airport
+     * Run ten times, for each airport in App.java therefore 10 flight request threads
+     */
+    public static void startFlightRequestProcess(int nAirports, int originAirport) 
+    {
+        System.out.println("Attempting to start flight request process for airport " + originAirport);
+
+        FLIGHT_REQUEST_THREAD_POOL.submit(() -> 
+        {
+            Process proc = null;
+            try 
+            {
+                proc = Runtime.getRuntime().exec(new String[] 
+                {
+                    "comms/bin/saed_flight_requests",
+                    String.valueOf(nAirports),
+                    String.valueOf(originAirport)
+                });
+                System.out.println("Flight request process for airport " + originAirport + " started successfully.");
+
+                //Read process output from comms/bin/saed_flight_requests
+                try (BufferedReader br = new BufferedReader(new InputStreamReader(proc.getInputStream()))) 
+                {
+                    String line;
+                    while (!SHUTDOWN_REQUESTED.get() && (line = br.readLine()) != null) 
+                    {
+                        try 
+                        {
+                            int destinationAirport = Integer.parseInt(line);
+                            FLIGHT_REQUESTS.put(new FlightRequest(originAirport, destinationAirport));
+                            System.out.println("Flight Request Received: From " + originAirport + " to " + destinationAirport);
+                        } catch (NumberFormatException e) 
+                        {
+                            System.out.println("Invalid Flight Request Received: " + line);
+                        } catch (InterruptedException e) 
+                        {
+                            Thread.currentThread().interrupt(); 
+                            System.out.println("Request Reader Thread Interrupted: " + e.getMessage());
+                        }
+                    }
+                }
+            } 
+            catch (IOException e) 
+            {
+                if (SHUTDOWN_REQUESTED.get() == false) 
+                {
+                    System.out.println("IOException while reading process output:" + e.getMessage());
+                    LOGGER.log(Level.SEVERE, "An error occurred", e);
+
+                } else 
+                {
+                    System.out.println("Flight Request Process for Airport" + originAirport + "was interrupted");
+                }
+            } finally 
+            {
+                if (proc != null) 
+                {
+                    proc.destroy();
+                    try 
+                    {
+                        proc.waitFor(); 
+                        System.out.println("Terminated Flight Request Process for Airport" + originAirport);
+                    } 
+                    catch (InterruptedException e) 
+                    {
+                        System.err.println("Exception while waiting for process termination number" + e.getMessage());
+                        LOGGER.log(Level.SEVERE, "An error occurred", e);
+                    }
+                }
+            }
+        });
+    }
+
+    /**
+    *Processes flight requests from the blocking queue
+    *Retrieves requests and assigns planes to flights if available
+    *@param map The system map containing airports and planes.
+    */
+    public static void processFlightRequests(SystemMap map) 
+    {
+        while (!FLIGHT_REQUESTS.isEmpty()) 
+        {
+            try 
+            {
+                FlightRequest request = FLIGHT_REQUESTS.take();
+                System.out.println("Processing flight request from " + request.getOriginAirport() + "to" + request.getDestinationAirport());
+
+                int originAirportId = request.getOriginAirport();
+                int destinationAirportId = request.getDestinationAirport();
+                Airport originAirport = map.getAirportById(originAirportId);
+                Airport destinationAirport = map.getAirportById(destinationAirportId);
+
+                if (originAirport != null && destinationAirport != null) 
+                {
+                    //Find and assign an available plane to the flight
+                    Plane plane = originAirport.findAvailablePlane();
+                    if (plane != null && !plane.isInFlight()) 
+                    {
+                        plane.setDestination(destinationAirport);
+                        plane.setInFlight(true);
+                        App.handlePlaneDeparture(plane.getId(), originAirportId, map);
+                        System.out.println(" Plane " + plane.getId() + "assigned from " + originAirportId + " to " + destinationAirportId);
+                    } else 
+                    {
+                        System.out.println(" No plane available for request from " + originAirportId + " to " + destinationAirportId);
+                    }
+                } 
+                else 
+                {
+                    System.out.println(" Invalid origin or destination airport for request from " + originAirportId + " to " + destinationAirportId);
+                }
+            } 
+            catch (InterruptedException e) 
+            {
+                //Handle thread interruption during flight request processing
+                Thread.currentThread().interrupt();
+                System.out.println("Thread interrupted while processing flight requests");
+            }
+        }
+    }
+
+    /*
+    *Updates the positions of planes moving towards their destination
+    *Ends flights when planes reach their destinations and updates the map
+    *@param map The system map containing airports and planes
+    */
+    public static void processPlaneMovements(SystemMap map) 
+    {
+        for (Plane plane : map.getPlanes()) 
+        {
+            if (plane.isInFlight()) 
+            {
+                plane.moveTowardsDestination();
+
+                if (!plane.isInFlight()) 
+                {
+                    Airport destinationAirport = plane.getDestination();
+                    if (destinationAirport != null) 
+                    {
+                        Airport previousAirport = map.getAirportById(plane.getCurrentAirportId(map));
+                        if (previousAirport != null) 
+                        {
+                            previousAirport.removePlane(plane);
+                        }
+                        destinationAirport.addPlane(plane);
+                        plane.endFlight();
+                        App.handlePlaneLanding(destinationAirport.getAiportId(), plane.getId(), map);
+                        System.out.println("Plane " + plane.getId() + " landed at " + destinationAirport.getAiportId());
+                    }
+                }
+            }
+        }
+    }
+
+   
+    //Ends all flight request processes and shuts down the thread pool
+    public static void endAllFlightRequestProcesses() 
+    {
+        //Signal that shutdown has been requested
+        SHUTDOWN_REQUESTED.set(true);
+
+        FLIGHT_REQUEST_THREAD_POOL.shutdown(); 
+        try 
+        {
+            //Wait for all tasks to complete and shut down the thread pool, 30 seconds 
+            if (!FLIGHT_REQUEST_THREAD_POOL.awaitTermination(30, TimeUnit.SECONDS)) 
+            {
+                //If tasks are still running after the timeout forcefully shut down
+                FLIGHT_REQUEST_THREAD_POOL.shutdownNow(); 
+                //Wait up to 30 seconds for the forced shutdown to complete
+                if (!FLIGHT_REQUEST_THREAD_POOL.awaitTermination(30, TimeUnit.SECONDS)) 
+                {
+                    //If the thread pool still hasn't terminated, print an error message
+                    System.err.println("Flight Request Thread Pool Shutdown: Thread pool did not terminate");
+                }
+            }
+        } 
+        catch (InterruptedException e) 
+        {
+            //Handle case where the current thread is interrupted while waiting for shutdown
+            FLIGHT_REQUEST_THREAD_POOL.shutdownNow(); 
+            System.err.println("Flight Request Thread Pool Shutdown: Interrupted during shutdown, forcing shutdown");
+            Thread.currentThread().interrupt(); 
+        }
+    }
+}

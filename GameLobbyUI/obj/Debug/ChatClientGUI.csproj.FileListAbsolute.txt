@@ -1,0 +1,47 @@
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\GUI.exe.config
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\GUI.exe
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\GUI.pdb
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\Assignment.dll
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\ConsoleApp1.exe
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\Assignment.pdb
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\ConsoleApp1.pdb
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\ChatClientGUI.csproj.AssemblyReference.cache
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\ChatClientGUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\FileDisplay.g.cs
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\MainWindow.g.cs
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\App.g.cs
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\GUI_MarkupCompile.cache
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\GUI_MarkupCompile.lref
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\FileDisplay.baml
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\MainWindow.baml
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\GUI.g.resources
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\GUI.Properties.Resources.resources
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\ChatClientGUI.csproj.GenerateResource.cache
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\ChatClientGUI.csproj.CoreCompileInputs.cache
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\ChatClientGUI.csproj.CopyComplete
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\GUI.exe
+C:\Users\Rafe\Desktop\2023\Semester 2\DC\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\GUI.pdb
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\GUI.exe.config
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\GUI.exe
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\GUI.pdb
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\Assignment.dll
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\ConsoleApp1.exe
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\Assignment.pdb
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\ConsoleApp1.pdb
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\bin\Debug\ConsoleApp1.exe.config
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\ChatClientGUI.csproj.AssemblyReference.cache
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\FileDisplay.g.cs
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\MainWindow.g.cs
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\App.g.cs
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\GUI_MarkupCompile.cache
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\GUI_MarkupCompile.lref
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\FileDisplay.baml
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\MainWindow.baml
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\GUI.g.resources
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\GUI.Properties.Resources.resources
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\ChatClientGUI.csproj.GenerateResource.cache
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\ChatClientGUI.csproj.CoreCompileInputs.cache
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\ChatClie.0814F3DE.Up2Date
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\GUI.exe
+C:\Users\ziadm\Desktop\DC_assignment_1_20610748_Rafe_Umair\DC_assignment_1_20610748_Rafe_Umair\DCAssignment-master\GUI\obj\Debug\GUI.pdb
